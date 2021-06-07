@@ -9,7 +9,7 @@ import numpy as np
 
 
 # Importing the model
-#model = pickle.load(open('model.pkl','rb'))
+model = pickle.load(open('model.pkl','rb'))
 
 
 app = Flask(__name__)
@@ -36,9 +36,7 @@ def to_model():
             model_array[i]=2
     
     input_array = np.array(model_array)
-    #prediction = model.predict([input_array])
-
-    prediction = [1,0]
+    prediction = model.predict([input_array])
 
     output=prediction[0]
 
@@ -62,5 +60,5 @@ def to_model():
 
 
 if __name__=="__main__":
-    app.run()
+    app.run(debug=True)
 
